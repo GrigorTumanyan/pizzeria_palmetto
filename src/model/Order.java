@@ -12,10 +12,6 @@ public class Order {
     public Order() {
     }
 
-    public Order(Customer custmor, Map<Pizza, Integer> pizzaMap) {
-        this.custmor = custmor;
-        this.pizzaMap = pizzaMap;
-    }
 
     public void setCustmor(Customer custmor) {
         this.custmor = custmor;
