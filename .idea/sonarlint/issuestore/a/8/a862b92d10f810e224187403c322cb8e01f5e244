@@ -1,0 +1,10 @@
+
+c
+java:S1854"GRemove this useless assignment to local variable "ingredientDoubleMap".(Ó¢©08­µæ‹Í/
+T
+java:S1481"8Remove this unused "ingredientDoubleMap" local variable.(Ó¢©08¯µæ‹Í/
+W	java:S125"<This block of commented-out lines of code should be removed.(Õ—v8°µæ‹Í/
+Q	java:S125"<This block of commented-out lines of code should be removed.(éÖ«ˆ
+Q	java:S125"<This block of commented-out lines of code should be removed.(Ø¿±‚
+0
+java:S1220""Move this file to a named package.

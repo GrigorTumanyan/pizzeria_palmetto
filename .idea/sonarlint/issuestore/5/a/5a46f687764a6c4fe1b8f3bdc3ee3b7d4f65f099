@@ -1,0 +1,15 @@
+
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ü¬äßùÿÿÿÿ
+R
+java:S3972"7Move this "if" to a new line or add the missing "else".(ãÖœŒùÿÿÿÿ
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(äã Áûÿÿÿÿ8õ€„ŒÍ/
+J
+java:S2864)"4Iterate over the "entrySet" instead of the "keySet".(¾«„æ
+C
+java:S1128"(Remove this unused import 'model.Pizza'.(˜ŒÒ±úÿÿÿÿ
+E
+java:S1128
+"*Remove this unused import 'java.util.Set'.(ö²„¤þÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ï¹ÈÔûÿÿÿÿ
+5
+java:S1640"Convert this Map to an EnumMap.(ä “ž
