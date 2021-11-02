@@ -7,10 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public final class  Pizza  {
+public final class  Pizza extends Order  {
     private final String NAME;
     private final Map<Ingredient, Double> INGREDIENT;
     private final PizzaType PIZZATYPE;
+
 
     public Pizza(String NAME, Map<Ingredient, Double> INGREDIENT, PizzaType PIZZATYPE) {
         this.NAME = NAME;
@@ -55,8 +56,4 @@ public final class  Pizza  {
         }
         return ingredientMap;
     }
-
-
-
-
 }

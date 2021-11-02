@@ -1,17 +1,20 @@
 package model;
 
-import annotation.Size;
-
-import java.util.Objects;
 import java.util.Random;
 
 public class Customer {
-    private int number;
+    private final int number;
     private String name;
 
+    {
+        Random random = new Random();
+        this.number = random.nextInt(10_000);
+    }
 
+    public Customer() {
+    }
 
-    public Customer( String name) {
+    public Customer(String name) {
         this.name = name;
     }
 
@@ -25,10 +28,5 @@ public class Customer {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    {
-        Random random = new Random();
-        this.number = random.nextInt(10_000);
     }
 }

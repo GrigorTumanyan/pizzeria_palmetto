@@ -5,36 +5,40 @@ import java.util.*;
 
 public class Order {
     private int number;
-    private Customer custmor;
-    private Map<Pizza, Integer> pizzaMap;
+    private Customer customer;
+    private Map<Order, Integer> orderMap;
     private int quantity;
 
     public Order() {
+        orderNumber();
     }
 
-
-    public void setCustmor(Customer custmor) {
-        this.custmor = custmor;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setPizzaMap(List<Pizza> pizzas) {
-        addPizza(pizzas);
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setOrderMap(List<? extends Order> orders) {
+        addOrder(orders);
     }
 
     public int getNumber() {
         return this.number;
     }
 
-    public Customer getCustmor() {
-        return custmor;
-    }
-
-    public Map<Pizza, Integer> getPizzaMap() {
-        return pizzaMap;
-    }
-
     public int getQuantity() {
         return quantity;
+    }
+
+    public double sumPizzaType(List<Pizza> pizzas) {
+        double sum = 0;
+        for (Pizza pizza : pizzas) {
+            sum += pizza.getPIZZATYPE().price;
+        }
+        return sum;
     }
 
     public double sumIngredient(List<Pizza> pizzas) {
@@ -48,58 +52,44 @@ public class Order {
         return sum;
     }
 
-    public double sumPizzaType(List<Pizza> pizzas){
-        double sum = 0;
-        for (Pizza pizza : pizzas) {
-            sum +=pizza.getPIZZATYPE().price;
-        }
-        return sum;
+    public double sumPizzas(List<Pizza> pizzas) {
+        return sumIngredient(pizzas) + sumPizzaType(pizzas);
     }
 
-    public double sumPizzas(List<Pizza> pizzas){
-       return sumIngredient(pizzas) + sumPizzaType(pizzas);
-    }
-
-
-    public double sumTotal(double pizzaValue){
+    public double sumTotal(double pizzaValue) {
         return pizzaValue;
     }
-    public double sumTotal(double pizzaValue,double pizzaValue1){
+
+    public double sumTotal(double pizzaValue, double pizzaValue1) {
         return pizzaValue + pizzaValue1;
     }
-    public double sumTotal(double pizzaValue, double pizzaValue1, double pizzaValue2){
+
+    public double sumTotal(double pizzaValue, double pizzaValue1, double pizzaValue2) {
         return pizzaValue + pizzaValue1 + pizzaValue2;
     }
 
-    private void orderNumber (){
+    private void orderNumber() {
         Random random = new Random();
-        this.number = random.nextInt(10_000,100_000);
+        this.number = random.nextInt(10_000, 100_000);
     }
 
-    private void orderQuantity (){
-        for (Integer value : pizzaMap.values()) {
+    private void orderQuantity() {
+        for (Integer value : orderMap.values()) {
             this.quantity += value;
         }
     }
-    private void addPizza (List <Pizza> pizzas){
-      Map<Pizza, Integer> pizzasMap = new HashMap<>();
-        for (Pizza pizza : pizzas) {
-            if (!pizzasMap.containsKey(pizza)){
-                pizzasMap.put(pizza,1);
-            }else {
-                pizzasMap.put(pizza,pizzasMap.get(pizza) + 1);
+
+    private void addOrder(List<? extends Order> orders) {
+        Map<Order, Integer> orderMap = new HashMap<>();
+        for (Order order : orders) {
+            if (!orderMap.containsKey(order)) {
+                orderMap.put(order, 1);
+            } else {
+                orderMap.put(order, orderMap.get(order) + 1);
             }
         }
-        this.pizzaMap = pizzasMap;
+        this.orderMap = orderMap;
         orderQuantity();
-        orderNumber();
     }
-//    public double sumIngredientPrice(Map<Ingredient, Double> ingredientDoubleMap) {
-//        double sum = 0;
-//        for (Ingredient ingredient : ingredientDoubleMap.keySet()) {
-//            sum += ingredientDoubleMap.get(ingredient);
-//        }
-//        return sum;
-//    }
-
 }
+
