@@ -27,7 +27,7 @@ public class Test {
         pizzaList.add(new Pizza(filterPizzaName(order, "Margarit"), ingredientDoubleMap, PizzaType.REGULAR));
         pizzaList.add(new Pizza(filterPizzaName(order, "Margarita"), ingredientDoubleMap, PizzaType.CLOSED));
         pizzaList.add(new Pizza(filterPizzaName(order, "Margarita"), ingredientDoubleMap, PizzaType.CLOSED));
-        order.setOrderMap(pizzaList);
+        order.setPizzaMap(pizzaList);
 
 
         System.out.println("ORDER:" + "" + order.getNumber());
@@ -45,8 +45,6 @@ public class Test {
         System.out.println("---------------------");
         System.out.println(order.sumPizzas(pizzaList));
         System.out.println(order.getQuantity());
-
-
     }
 
 }

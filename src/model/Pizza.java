@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public final class  Pizza extends Order  {
+public final class  Pizza  {
     private final String NAME;
     private final Map<Ingredient, Double> INGREDIENT;
     private final PizzaType PIZZATYPE;

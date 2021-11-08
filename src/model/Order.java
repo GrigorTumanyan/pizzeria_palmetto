@@ -6,7 +6,7 @@ import java.util.*;
 public class Order {
     private int number;
     private Customer customer;
-    private Map<Order, Integer> orderMap;
+    private Map<Pizza, Integer> pizzaMap;
     private int quantity;
 
     public Order() {
@@ -21,8 +21,8 @@ public class Order {
         this.customer = customer;
     }
 
-    public void setOrderMap(List<? extends Order> orders) {
-        addOrder(orders);
+    public void setPizzaMap(List<Pizza> pizzaMap) {
+        addPizza(pizzaMap);
     }
 
     public int getNumber() {
@@ -74,21 +74,21 @@ public class Order {
     }
 
     private void orderQuantity() {
-        for (Integer value : orderMap.values()) {
+        for (Integer value : pizzaMap.values()) {
             this.quantity += value;
         }
     }
 
-    private void addOrder(List<? extends Order> orders) {
-        Map<Order, Integer> orderMap = new HashMap<>();
-        for (Order order : orders) {
-            if (!orderMap.containsKey(order)) {
-                orderMap.put(order, 1);
+    private void addPizza(List<Pizza> pizzas) {
+        Map<Pizza, Integer> pizzaMap = new HashMap<>();
+        for (Pizza pizza : pizzas) {
+            if (!pizzaMap.containsKey(pizza)) {
+                pizzaMap.put(pizza, 1);
             } else {
-                orderMap.put(order, orderMap.get(order) + 1);
+                pizzaMap.put(pizza, pizzaMap.get(pizza) + 1);
             }
         }
-        this.orderMap = orderMap;
+        this.pizzaMap = pizzaMap;
         orderQuantity();
     }
 }
