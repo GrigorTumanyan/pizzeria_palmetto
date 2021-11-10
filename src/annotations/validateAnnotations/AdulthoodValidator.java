@@ -1,7 +1,6 @@
-package annotations.validate;
+package annotations.validateAnnotations;
 
 import annotations.Adulthood;
-import annotations.SimpleService;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

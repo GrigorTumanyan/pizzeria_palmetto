@@ -1,4 +1,6 @@
-package annotations;
+package dto;
+
+import annotations.*;
 
 import java.time.LocalDate;
 

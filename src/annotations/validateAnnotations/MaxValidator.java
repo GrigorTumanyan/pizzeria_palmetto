@@ -1,7 +1,6 @@
-package annotations.validate;
+package annotations.validateAnnotations;
 
 import annotations.Max;
-import annotations.SimpleService;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
