@@ -7,10 +7,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
 public class EmailValidator implements Validator {
-    public static void main(String[] args) {
-EmailValidator a = new EmailValidator();
-a.fieldValidator(SimpleService.class);
-    }
 
     @Override
     public void fieldValidator(Class<?> className) {

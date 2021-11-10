@@ -9,11 +9,6 @@ import java.time.LocalDate;
 
 
 public class AdulthoodValidator implements Validator {
-    public static void main(String[] args) {
-        AdulthoodValidator a = new AdulthoodValidator();
-        a.fieldValidator(SimpleService.class);
-        System.out.println("------------------");
-    }
 
     @Override
     public void fieldValidator(Class<?> className) {

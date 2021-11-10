@@ -8,10 +8,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
 public class MinValidator implements Validator{
-    public static void main(String[] args) {
-        MinValidator m = new MinValidator();
-        m.fieldValidator(SimpleService.class);
-    }
+
     @Override
     public void fieldValidator(Class<?> className) {
         Field[] declaredFields = className.getDeclaredFields();

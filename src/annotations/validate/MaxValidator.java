@@ -7,10 +7,6 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
 public class MaxValidator implements Validator{
-    public static void main(String[] args) {
-        MaxValidator a = new MaxValidator();
-        a.fieldValidator(SimpleService.class);
-    }
 
     @Override
     public void fieldValidator(Class<?> className) {
