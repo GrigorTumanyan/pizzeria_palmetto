@@ -3,17 +3,16 @@ package dto;
 import annotations.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerDto {
     @Length(min = 2, max = 30)
     private String name;
-
     @Email
     private String email;
-
     @Adulthood
     private LocalDate birthDay;
-
     @Min(0)
     @Max(100)
     private int discountRate;

@@ -5,25 +5,25 @@ import annotations.Email;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 
-public class EmailValidator implements Validator {
+public class EmailValidator<T> implements Validator {
 
     @Override
-    public void fieldValidator(Class<?> className) {
-        Field[] declaredFields = className.getDeclaredFields();
+    public void fieldValidator(Object dto) {
+        Field[] declaredFields = dto.getClass().getDeclaredFields();
         for (Field field : declaredFields) {
             if (field.isAnnotationPresent(Email.class)) {
                 field.setAccessible(true);
                 Email annotation = field.getAnnotation(Email.class);
                 String fieldValue = null;
                 try {
-                    fieldValue = field.get(className.getDeclaredConstructor().newInstance()).toString();
-                } catch (IllegalAccessException | InstantiationException | InvocationTargetException | NoSuchMethodException e) {
+                    fieldValue = field.get(dto).toString();
+                } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
                 if (fieldValue != null && fieldValue.matches(annotation.regex())){
                     return;
                 }else{
-                    throw new RuntimeException( "Field's " + field.getName() + " is not correct");
+                    Messages.messages.add( "Field's " + field.getName() + " is not correct");
                 }
 
             }

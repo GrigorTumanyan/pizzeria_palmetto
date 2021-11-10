@@ -1,5 +1,5 @@
 package annotations.validateAnnotations;
 
-public interface Validator {
-     void fieldValidator(Class<?> className);
+public interface Validator<T> {
+     void fieldValidator(T dto);
 }

@@ -3,28 +3,29 @@ package annotations.validateAnnotations;
 import annotations.Adulthood;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDate;
 
 
-public class AdulthoodValidator implements Validator {
-
+public class AdulthoodValidator<T> implements Validator {
     @Override
-    public void fieldValidator(Class<?> className) {
-        Field[] declaredFields = className.getDeclaredFields();
+    public void fieldValidator(Object dto) {
+        Field[] declaredFields = dto.getClass().getDeclaredFields();
         for (Field field : declaredFields) {
             if (field.isAnnotationPresent(Adulthood.class)) {
                 field.setAccessible(true);
+                LocalDate fieldValue = null;
                 try {
-                    LocalDate fieldValue = (LocalDate) field.get(className.getDeclaredConstructor().newInstance());
-                    if ((LocalDate.now().getYear() - fieldValue.getYear()) <= 18){
-                        if ((LocalDate.now().getDayOfYear() - fieldValue.getDayOfYear()) < 0){
-                            throw new RuntimeException("You are under 18 years old");
-                        }
-                    }
-                } catch (IllegalAccessException | InstantiationException | InvocationTargetException | NoSuchMethodException e) {
+                    fieldValue = (LocalDate) field.get(dto);
+                } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
+                assert fieldValue != null;
+                if ((LocalDate.now().getYear() - fieldValue.getYear()) < 18 ) {
+                    Messages.messages.add("You are under 18 years old");
+                }else if((LocalDate.now().getYear() - fieldValue.getYear()) == 18 && (LocalDate.now().getDayOfYear() - fieldValue.getDayOfYear()) < 0 )
+                            Messages.messages.add("You are under 18 years old");
+
+
             }
         }
     }
