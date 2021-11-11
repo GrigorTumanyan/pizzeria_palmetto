@@ -16,18 +16,14 @@ public class Test {
 
 
     public static void main(String[] args) {
-        CustomerDto dto = new CustomerDto("B","dssd", LocalDate.of(2003,11,30),200);
+        CustomerDto dto = new CustomerDto("B", "dssd", LocalDate.of(2003, 11, 30), 200);
         new AdulthoodValidator<CustomerDto>().fieldValidator(dto);
         new EmailValidator<CustomerDto>().fieldValidator(dto);
         new LengthValidator<CustomerDto>().fieldValidator(dto);
         new MaxValidator<CustomerDto>().fieldValidator(dto);
         new MinValidator<CustomerDto>().fieldValidator(dto);
         System.out.println(Messages.messages);
-
-
-
-
-//
+//        ---------------------------------------------------------------------------------------------------
 //        List<Ingredient> ingredientList = List.of(Ingredient.CHEESE,
 //                Ingredient.BACON, Ingredient.CORN, Ingredient.GARLIC, Ingredient.TOMATO_PASTE);
 //        Map<Ingredient, Double> ingredientDoubleMap = Pizza.addIngredient(ingredientList);
