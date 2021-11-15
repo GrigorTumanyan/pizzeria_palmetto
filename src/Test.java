@@ -1,9 +1,7 @@
-import annotations.validateAnnotations.*;
-import dto.CustomerDto;
-import model.*;
+import homework2.annotations.validateAnnotations.*;
+import homework2.dto.CustomerDto;
 
 import java.time.LocalDate;
-import java.util.*;
 
 public class Test {
 //    private static String filterPizzaName (Order order, String name){

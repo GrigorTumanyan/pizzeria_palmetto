@@ -1,9 +1,8 @@
-package annotations.validateAnnotations;
+package homework2.annotations.validateAnnotations;
 
-import annotations.Email;
+import homework2.annotations.Email;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 
 public class EmailValidator<T> implements Validator {
 

@@ -1,9 +1,8 @@
-package annotations.validateAnnotations;
+package homework2.annotations.validateAnnotations;
 
-import annotations.Min;
+import homework2.annotations.Min;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 
 public class MinValidator<T> implements Validator {
 

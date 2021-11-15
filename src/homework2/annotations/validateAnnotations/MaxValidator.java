@@ -1,9 +1,8 @@
-package annotations.validateAnnotations;
+package homework2.annotations.validateAnnotations;
 
-import annotations.Max;
+import homework2.annotations.Max;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 
 public class MaxValidator<T> implements Validator {
 

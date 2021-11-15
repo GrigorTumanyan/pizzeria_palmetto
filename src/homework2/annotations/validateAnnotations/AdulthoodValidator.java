@@ -1,6 +1,6 @@
-package annotations.validateAnnotations;
+package homework2.annotations.validateAnnotations;
 
-import annotations.Adulthood;
+import homework2.annotations.Adulthood;
 
 import java.lang.reflect.Field;
 import java.time.LocalDate;

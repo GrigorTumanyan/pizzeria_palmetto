@@ -1,4 +1,4 @@
-package annotations.validateAnnotations;
+package homework2.annotations.validateAnnotations;
 
 import java.util.ArrayList;
 import java.util.List;

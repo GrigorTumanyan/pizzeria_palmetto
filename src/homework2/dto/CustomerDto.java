@@ -1,10 +1,8 @@
-package dto;
+package homework2.dto;
 
-import annotations.*;
+import homework2.annotations.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CustomerDto {
     @Length(min = 2, max = 30)

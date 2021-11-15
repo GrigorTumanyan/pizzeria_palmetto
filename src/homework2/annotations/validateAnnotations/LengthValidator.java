@@ -1,9 +1,8 @@
-package annotations.validateAnnotations;
+package homework2.annotations.validateAnnotations;
 
-import annotations.Length;
+import homework2.annotations.Length;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 
 public class LengthValidator<T> implements Validator {
 
