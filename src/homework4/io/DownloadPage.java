@@ -1,5 +1,8 @@
 package homework4.io;
 
+import homework4.ExtensionFilter;
+
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
@@ -11,6 +14,7 @@ public class DownloadPage {
     public static void main(String[] args) {
 
         DownloadPage.write("http://tutorials.jenkov.com/java-io/index.html");
+        deleteFileByExtension(".tmp");
     }
 
     public static InputStream openStream(String webPath) {
@@ -34,7 +38,8 @@ public class DownloadPage {
             }
         }
     }
-    public static String fileName(String webPath){
+
+    public static String fileName(String webPath) {
         String fileName = webPath.substring(7);
         return fileName.replace('/', '_');
     }
@@ -47,13 +52,32 @@ public class DownloadPage {
             byte[] buff = new byte[8192];
             int bytesRead;
             if (in != null) {
-                while (in.read() != -1){
+                while (in.read() != -1) {
                     bytesRead = in.read(buff);
-                    out.write(buff,0,bytesRead);
+                    out.write(buff, 0, bytesRead);
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static Boolean deleteFileByExtension(String extension) {
+        File fileDir = new File(GENERAL_PATH);
+        ExtensionFilter extFilter = new ExtensionFilter(extension);
+        final String[] fileNameList = fileDir.list(extFilter);
+        if (fileNameList != null && fileNameList.length == 0) {
+            System.out.println("no files end with " + extension);
+            return false;
+        }
+        boolean delete = false;
+        if (fileNameList != null) {
+            for (String fileName : fileNameList) {
+                String filePath = GENERAL_PATH + File.separator + fileName;
+                File file = new File(filePath);
+                delete = file.delete();
+            }
+        }
+        return delete;
     }
 }
