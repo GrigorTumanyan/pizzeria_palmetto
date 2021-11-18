@@ -131,7 +131,6 @@ public class Customer implements Serializable {
         final byte[] encode = encoder.encode(numberCreditCard.getBytes());
         return new String(encode);
     }
-
     public static String decode(String numberCreditCard) {
         Base64.Decoder decoder = Base64.getDecoder();
         final byte[] decode = decoder.decode(numberCreditCard);
