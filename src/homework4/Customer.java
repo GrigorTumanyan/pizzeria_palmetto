@@ -8,22 +8,29 @@ import java.util.stream.Collectors;
 
 public class Customer implements Serializable {
     public static void main(String[] args)  {
-        List<Customer> customers = new ArrayList<>();
-        customers.add(new Customer("Artashes", null, 10));
-        customers.add(new Customer("Artavazd", null, 12));
-        customers.add(new Customer("Tigran", null, 8));
-        String path = "C:\\Users\\Student\\Projects_Grigor_Tumanyan\\homework4.2\\customer.txt";
-        Customer.write(customers, path);
-        read(path);
+//        List<Customer> customers = new ArrayList<>();
+//        customers.add(new Customer("Artashes", null, 10,"7894 4567 1234 0012"));
+//        customers.add(new Customer("Artavazd", null, 12,"7894 4567 1234 0892"));
+//        customers.add(new Customer("Tigran", null, 8,"7894 4567 8534 0012"));
+//        String path = "C:\\Users\\Student\\Projects_Grigor_Tumanyan\\homework4.2\\customer.txt";
+//        Customer.write(customers, path);
+//        read(path);
+        final String encode = encode("7856 1258 8745 4567");
+        System.out.println(("It's encode " + encode));
+        System.out.println("It's decode " + decode(encode));
+
     }
+
     private String name;
     private String phone;
     private int score;
+    private String numberCreditCard;
 
-    public Customer(String name, String phone, int score) {
+    public Customer(String name, String phone, int score, String numberCreditCard) {
         this.name = name;
         this.phone = phone;
         this.score = score;
+        this.numberCreditCard = numberCreditCard;
     }
 
     public String getName() {
@@ -36,6 +43,10 @@ public class Customer implements Serializable {
 
     public int getScore() {
         return score;
+    }
+
+    public String numberCreditCard() {
+        return numberCreditCard;
     }
 
     @Override
@@ -114,4 +125,17 @@ public class Customer implements Serializable {
             e.printStackTrace();
         }
     }
+
+    public static String encode(String numberCreditCard) {
+        Base64.Encoder encoder = Base64.getEncoder();
+        final byte[] encode = encoder.encode(numberCreditCard.getBytes());
+        return new String(encode);
+    }
+
+    public static String decode(String numberCreditCard) {
+        Base64.Decoder decoder = Base64.getDecoder();
+        final byte[] decode = decoder.decode(numberCreditCard);
+        return new String(decode);
+    }
+
 }
