@@ -2,7 +2,6 @@ package homework4.io;
 
 import homework4.ExtensionFilter;
 
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
