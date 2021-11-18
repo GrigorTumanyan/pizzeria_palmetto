@@ -1,4 +1,4 @@
-package model;
+package Homework1.model;
 
 public enum PizzaType {
     REGULAR(1.0), CLOSED(1.5);
